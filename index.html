@@ -28,11 +28,89 @@
 
         <section id="projects">
             <h2>Projects</h2>
-            <div class="project">
-                <h3>Project Title</h3>
-                <p>[Description of the project]</p>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons flex flex-center flex-wrap gap-2 mb-4">
+                <button class="btn btn-primary filter-btn active" data-filter="all">All Projects</button>
+                <button class="btn btn-outline filter-btn" data-filter="frontend">Frontend</button>
+                <button class="btn btn-outline filter-btn" data-filter="backend">Backend</button>
+                <button class="btn btn-outline filter-btn" data-filter="mobile">Mobile</button>
+                <button class="btn btn-outline filter-btn" data-filter="ai">AI/ML</button>
             </div>
-            <!-- Add more projects as needed -->
+
+            <div class="projects-container grid grid-3">
+                <div class="project card hover-lift" data-category="frontend">
+                    <div class="icon icon-pink"></div>
+                    <h3>E-Commerce Platform</h3>
+                    <p>A full-stack web application for online shopping with payment integration and inventory management.</p>
+                    <div class="tag tag-pink">React</div>
+                    <div class="tag tag-pink">Node.js</div>
+                </div>
+
+                <div class="project card hover-lift" data-category="frontend">
+                    <div class="icon icon-green"></div>
+                    <h3>Task Management App</h3>
+                    <p>Collaborative project management tool with real-time updates, task tracking, and team collaboration features.</p>
+                    <div class="tag tag-green">Vue.js</div>
+                    <div class="tag tag-green">Firebase</div>
+                </div>
+
+                <div class="project card hover-lift" data-category="frontend">
+                    <div class="icon icon-orange"></div>
+                    <h3>Weather Dashboard</h3>
+                    <p>Interactive weather application displaying real-time forecasts, climate data, and historical weather patterns.</p>
+                    <div class="tag tag-orange">JavaScript</div>
+                    <div class="tag tag-orange">API</div>
+                </div>
+
+                <div class="project card hover-lift" data-category="frontend">
+                    <div class="icon icon-cyan"></div>
+                    <h3>Social Media Feed</h3>
+                    <p>Dynamic social platform with user profiles, post creation, comments, and real-time notifications.</p>
+                    <div class="tag">React</div>
+                    <div class="tag">MongoDB</div>
+                </div>
+
+                <div class="project card hover-lift" data-category="ai">
+                    <div class="icon icon-pink"></div>
+                    <h3>AI Chat Bot</h3>
+                    <p>Intelligent conversational AI chatbot with natural language processing and machine learning capabilities.</p>
+                    <div class="tag tag-pink">Python</div>
+                    <div class="tag tag-pink">TensorFlow</div>
+                </div>
+
+                <div class="project card hover-lift" data-category="mobile">
+                    <div class="icon icon-green"></div>
+                    <h3>Fitness Tracker</h3>
+                    <p>Health and wellness mobile app tracking workouts, calories, and fitness goals with analytics dashboard.</p>
+                    <div class="tag tag-green">React Native</div>
+                    <div class="tag tag-green">Expo</div>
+                </div>
+
+                <div class="project card hover-lift" data-category="backend">
+                    <div class="icon icon-orange"></div>
+                    <h3>Music Streaming Service</h3>
+                    <p>Audio streaming platform with playlist management, recommendations, and high-quality audio playback.</p>
+                    <div class="tag tag-orange">Node.js</div>
+                    <div class="tag tag-orange">PostgreSQL</div>
+                </div>
+
+                <div class="project card hover-lift" data-category="frontend">
+                    <div class="icon icon-cyan"></div>
+                    <h3>Real Estate Portal</h3>
+                    <p>Property listing website with advanced search filters, virtual tours, and client management system.</p>
+                    <div class="tag">Next.js</div>
+                    <div class="tag">Supabase</div>
+                </div>
+
+                <div class="project card hover-lift" data-category="frontend">
+                    <div class="icon icon-pink"></div>
+                    <h3>Blog CMS Platform</h3>
+                    <p>Content management system for bloggers with markdown support, SEO optimization, and analytics.</p>
+                    <div class="tag tag-pink">Vue.js</div>
+                    <div class="tag tag-pink">Laravel</div>
+                </div>
+            </div>
         </section>
 
         <section id="contact">
@@ -45,5 +123,40 @@
     <footer>
         <p>&copy; 2023 [Your Name]. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Project Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projects = document.querySelectorAll('.project');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter projects
+                    projects.forEach(project => {
+                        if (filter === 'all') {
+                            project.classList.add('fade-in');
+                            project.style.display = 'block';
+                        } else {
+                            const category = project.getAttribute('data-category');
+                            if (category === filter) {
+                                project.classList.add('fade-in');
+                                project.style.display = 'block';
+                            } else {
+                                project.classList.remove('fade-in');
+                                project.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
