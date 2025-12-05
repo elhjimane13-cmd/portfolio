@@ -1583,3 +1583,98 @@ section {
   margin-bottom: 2rem;
 }
 
+/* ========================================
+   PROFILE PICTURE STYLES
+   ======================================== */
+
+.profile-picture-container {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+  border: 4px solid #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 4px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.profile-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.header-content {
+  padding: 3rem 0;
+}
+
+/* About Section with Image */
+.about-content {
+  align-items: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+}
+
+.about-image {
+  flex: 0 0 300px;
+  min-width: 0;
+}
+
+.about-picture {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+  transition: all 0.3s ease;
+}
+
+.about-picture:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+}
+
+.about-text {
+  flex: 1;
+  padding: 0 2rem;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about-image {
+    flex: 0 0 250px;
+  }
+
+  .about-text {
+    padding: 0;
+  }
+
+  .profile-picture-container {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1.5rem;
+  }
+
+  .header-content {
+    padding: 2rem 0;
+  }
+}
+
